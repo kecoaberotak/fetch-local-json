@@ -1,3 +1,7 @@
+const navMenu = document.querySelector('.nav-menu');
+const menuTitle = document.querySelector('.menu-title');
+let kategori = 'all-menu';
+
 // Fetch data dari json
 async function loadData(){
   const response = await fetch('data/pizza.json');
@@ -5,17 +9,7 @@ async function loadData(){
   return dataMenu.menu;
 };
 
-// tampil sesuai navbar
-const navMenu = document.querySelector('.nav-menu');
-const menuTitle = document.querySelector('.menu-title');
-
-navMenu.addEventListener('click', async function(e){
-  const kategori = e.target.getAttribute('id');
-
-  if(kategori === 'all-menu'){
-    menuTitle.textContent = 'All Menu';
-  }else menuTitle.textContent = kategori.charAt(0).toUpperCase() + kategori.slice(1);
-
+async function dataMenu(){
   let menu = [];
 
   try {
@@ -25,12 +19,28 @@ navMenu.addEventListener('click', async function(e){
     console.log(e);
   }
 
-  updateUI(menu, kategori);
+  updateUI(menu);
+};
+
+document.addEventListener('DOMContentLoaded', async () => {
+  await dataMenu();
+});
+
+
+// tampil sesuai navbar
+navMenu.addEventListener('click', async function(e){
+  kategori = e.target.getAttribute('id');
+
+  if(kategori === 'all-menu'){
+    menuTitle.textContent = 'All Menu';
+  }else menuTitle.textContent = kategori.charAt(0).toUpperCase() + kategori.slice(1);
+
+  await dataMenu();
 });
 
 
 // UI
-function updateUI(menus, kategori){
+function updateUI(menus){
   const containerMenu = document.querySelector('#daftar-menu');
   let cards = '';
 

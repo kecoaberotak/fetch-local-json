@@ -22,6 +22,7 @@ async function dataMenu(){
   updateUI(menu);
 };
 
+// nampilin pas load pertama kali
 document.addEventListener('DOMContentLoaded', async () => {
   await dataMenu();
 });

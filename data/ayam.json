@@ -1,0 +1,25 @@
+[
+  {
+    "nama"  : "Korean Chicken Wings",
+    "Bumbu" : [
+      "Smokey Comet",
+      "Moon Original",
+      "Big Bang"
+    ]
+  },
+  {
+    "nama"  : "Moon Fried Chicken",
+    "Bumbu" : [
+      "Honey Garlic",
+      "Gangjeong",
+      "Lousiana Star"
+    ]
+  },
+  {
+    "nama"  : "XL Meteor Chicken",
+    "Bumbu" : [
+      "Ground Zero",
+      "Samyang Byeol"
+    ]
+  }
+]

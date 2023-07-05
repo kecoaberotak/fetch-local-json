@@ -1,3 +1,4 @@
+// Fetch data dari json
 async function loadData(){
   const response = await fetch('data/pizza.json');
   const dataMenu = await response.json();
@@ -5,8 +6,12 @@ async function loadData(){
   return dataMenu.menu;
 };
 
+// tampil sesuai navbar
+const navMenu = document.querySelector('.nav-menu');
+navMenu.addEventListener('click', async function(e){
+  const katergori = e.target.getAttribute('id');
+  console.log(katergori);
 
-document.addEventListener('DOMContentLoaded', async () => {
   let menu = [];
 
   try {
@@ -20,6 +25,14 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 
+
+// document.addEventListener('DOMContentLoaded', async () => {
+
+// });
+
+
+
+// UI
 function updateUI(menus){
   const containerMenu = document.querySelector('#daftar-menu');
   let cards = '';
@@ -30,7 +43,6 @@ function updateUI(menus){
 
   containerMenu.innerHTML = cards;
 };
-
 
 function showCard(menu){
   return `<div class="col-md-4 mt-3">
